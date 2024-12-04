@@ -1,0 +1,39 @@
+  1. Find the elements in array which are having frequencies greater than n/3 of Array.
+    
+    vector<int> findMajority(vector<int>& arr) {
+        // Your code goes here.
+        
+        int n=arr.size();
+        int a=n/3;
+        int count =0;
+        
+        unordered_map<int,int> map;
+        
+        vector<int> res;
+        
+        for (int i=0;i<=n-1;i++)
+        {
+            map[arr[i]]++;
+        }
+        
+        for (auto i: map)
+        {
+            
+            count = i.second;
+            
+           if(count>a)
+           {
+              res.push_back(i.first);
+           }
+        }
+        
+      if(res.size()==2 and res[0]>res[1])
+      {
+          swap(res[0],res[1]);
+          
+      }
+    
+    return res;
+        
+      
+    }
